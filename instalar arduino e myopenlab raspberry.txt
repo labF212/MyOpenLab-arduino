@@ -1,0 +1,44 @@
+MyOpenLab, RaspBerry e Arduino
+https://www.youtube.com/watch?v=oXuQiDlD284
+
+
+sudo apt-get update
+
+sudo apt-get install arduino
+
+sudo apt-get install librxtx-java
+
+Open Arduino IDE, connect and upload "Standard Firmata"
+
+sudo cp /usr/share/arduino/lib/RXTXcomm.jar /usr/lib/jvm/jdk-8-oracle-arm32-vfp-hflt/jre/lib/ext
+
+sudo cp /usr/lib/jni/librxtxSerial.so /usr/lib/jvm/jdk-8-oracle-arm32-vfp-hflt/jre/lib/arm
+
+sudo cp /usr/lib/jni/librxtxParallel.so /usr/lib/jvm/jdk-8-oracle-arm32-vfp-hflt/jre/lib/arm
+
+Reboot the Raspberry
+
+Go to your MyOpenLab "distribution" folder and find the folder "lib" to rename de old driver:
+
+/distribuition/lib/RXTXcomm.jar as 
+
+/distribuition/lib/RXTXcomm_JV.jar
+
+Pelo sim pelo não fazer na directoria do myopenlab (supra poderes...):
+sudo chmod +x *
+
+
+Testar o led de saída:
+
+int led = 13;
+
+void setup() {
+  pinMode(led, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(led, HIGH);
+  delay(3000);
+  digitalWrite(led, LOW);
+  delay(1000);
+}
